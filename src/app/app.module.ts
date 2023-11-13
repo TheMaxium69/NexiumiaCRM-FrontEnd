@@ -9,6 +9,7 @@ import { TacheComponent } from './tache/tache.component';
 import { ClientComponent } from './client/client.component';
 import { AdminComponent } from './admin/admin.component';
 import { StatsComponent } from './stats/stats.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { StatsComponent } from './stats/stats.component';
     TacheComponent,
     ClientComponent,
     AdminComponent,
-    StatsComponent
+    StatsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
