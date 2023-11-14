@@ -1,0 +1,18 @@
+#addTechnicien {
+    width: 80%;
+    margin: auto;
+}
+
+#addTechnicien .form-group {
+    margin-top: 3%;
+}
+
+h2{
+    margin-top: 5%;
+}
+
+#addTechnicien .submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}

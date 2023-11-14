@@ -10,6 +10,7 @@ import { ClientComponent } from './client/client.component';
 import { AdminComponent } from './admin/admin.component';
 import { StatsComponent } from './stats/stats.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AddTechnicienComponent } from './add-technicien/add-technicien.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     ClientComponent,
     AdminComponent,
     StatsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddTechnicienComponent
   ],
   imports: [
     BrowserModule,
