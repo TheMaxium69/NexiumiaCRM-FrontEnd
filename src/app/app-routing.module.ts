@@ -5,13 +5,18 @@ import { TacheComponent } from './tache/tache.component';
 import { ClientComponent } from './client/client.component';
 import { AdminComponent } from './admin/admin.component';
 import { StatsComponent } from './stats/stats.component';
+import { AddTechnicienComponent } from './add-technicien/add-technicien.component';
+import { AddAgenceComponent } from './add-agence/add-agence.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'tache', component: TacheComponent},
   {path: 'client', component:ClientComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'admin/addTechnicien', component: AddTechnicienComponent},
+  {path: 'admin/addAgence', component: AddAgenceComponent},
   {path: 'stats', component: StatsComponent},
+  
 ];
 
 @NgModule({
