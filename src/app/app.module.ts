@@ -12,6 +12,7 @@ import { StatsComponent } from './stats/stats.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddTechnicienComponent } from './add-technicien/add-technicien.component';
 import { AddAgenceComponent } from './add-agence/add-agence.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddAgenceComponent } from './add-agence/add-agence.component';
     StatsComponent,
     NavbarComponent,
     AddTechnicienComponent,
-    AddAgenceComponent
+    AddAgenceComponent,
+    AddAdminComponent
   ],
   imports: [
     BrowserModule,

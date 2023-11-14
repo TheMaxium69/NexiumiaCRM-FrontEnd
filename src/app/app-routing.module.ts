@@ -7,6 +7,7 @@ import { AdminComponent } from './admin/admin.component';
 import { StatsComponent } from './stats/stats.component';
 import { AddTechnicienComponent } from './add-technicien/add-technicien.component';
 import { AddAgenceComponent } from './add-agence/add-agence.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'admin/addTechnicien', component: AddTechnicienComponent},
   {path: 'admin/addAgence', component: AddAgenceComponent},
+  {path: 'admin/addAdmin', component: AddAdminComponent},
   {path: 'stats', component: StatsComponent},
   
 ];
