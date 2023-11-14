@@ -1,0 +1,18 @@
+#admin {
+    width: 80%;
+    margin: auto;
+}
+
+#admin .form-group {
+    margin-top: 3%;
+}
+
+h2{
+    margin-top: 5%;
+}
+
+#admin .submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
