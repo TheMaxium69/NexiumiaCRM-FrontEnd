@@ -8,6 +8,7 @@ import { StatsComponent } from './stats/stats.component';
 import { AddTechnicienComponent } from './add-technicien/add-technicien.component';
 import { AddAgenceComponent } from './add-agence/add-agence.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
+import {ProfilComponent} from "./profil/profil.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'admin/addAgence', component: AddAgenceComponent},
   {path: 'admin/addAdmin', component: AddAdminComponent},
   {path: 'stats', component: StatsComponent},
-  
+  {path: 'profile', component: ProfilComponent},
+
 ];
 
 @NgModule({

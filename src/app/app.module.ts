@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddTechnicienComponent } from './add-technicien/add-technicien.component';
 import { AddAgenceComponent } from './add-agence/add-agence.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
     NavbarComponent,
     AddTechnicienComponent,
     AddAgenceComponent,
-    AddAdminComponent
+    AddAdminComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
