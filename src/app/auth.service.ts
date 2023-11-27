@@ -20,7 +20,7 @@ export class AuthService {
   postHash(Password: string, url:string): Observable<String> {
     let bodyNoJson: any={"password":Password};
     const body = JSON.stringify(bodyNoJson);
-    console.log(body);
+    // console.log(body);
     return this.http.post<String>(url+'/api/hashMdp', body, this.options);
   }
 
@@ -31,7 +31,7 @@ export class AuthService {
       "password":PasswordHashed
     };
     const body = JSON.stringify(bodyNoJson);
-    console.log(body);
+    // console.log(body);
 
     return this.http.post<TokenInterface>(url+'/api/login_check', body, this.options);
   }

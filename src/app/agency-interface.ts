@@ -1,12 +1,15 @@
+import {ClientInterface} from "./client-interface";
+
 export interface AgencyInterface {
-  id:number;
-  name:string;
-  siret:string;
-  path:string;
-  color:string;
-  email:string;
-  phone:string;
-  tva:string;
+    id:number;
+    name:string;
+    siret:string;
+    path:string;
+    color:string;
+    email:string;
+    phone:string;
+    tva:string;
+    clients:ClientInterface;
 }
 
 /*

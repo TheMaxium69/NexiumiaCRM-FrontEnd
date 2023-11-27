@@ -4,3 +4,23 @@
   <hr>
   <br>
 </div>
+
+
+<h2 class="text-center mt-3">Nombre de Clients par Agences</h2>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Color</th>
+    <th scope="col">Name</th>
+    <th scope="col">Client</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let agency of agencyAll">
+    <td style="color: {{ agency.color }}"><i class="fa-solid fa-circle"></i></td>
+    <td>{{ agency.name }}</td>
+    <td>{{ agency.clients.length }}</td>
+  </tr>
+  </tbody>
+</table>

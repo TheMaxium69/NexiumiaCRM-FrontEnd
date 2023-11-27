@@ -9,7 +9,7 @@
     color: white;
     /*background-color: black;*/
     padding: 5%;
-    height: 100%;
+    height: 100vh;
 
     background: linear-gradient(rgba(12, 30, 53, 0.80), rgba(12, 30, 53, 0.80)), url("https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg");
     background-position: 62%;

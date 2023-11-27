@@ -12,11 +12,12 @@ export class AgencyService {
 
   constructor(private http: HttpClient) { }
 
-  //recupere tout les agence
+  //recupere tout les agences
   getAgencys(url: string, options : {headers: HttpHeaders} ): Observable<AgencyInterface[]> {
     return this.http.get<AgencyInterface[]>(url + '/api/agencies', options);
   }
 
+  //Recupere une seule agence
   getAgencyOne(AgencyId: number, url: string, options : {headers: HttpHeaders} ): Observable<AgencyInterface> {
     return this.http.get<AgencyInterface>(url + '/api/agency/' + AgencyId, options);
   }

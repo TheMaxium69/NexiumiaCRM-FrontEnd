@@ -1,23 +1,26 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "./auth.service";
 import {HttpHeaders} from "@angular/common/http";
 import { CookieService } from 'ngx-cookie-service';
+import {UserInterface} from "./user-interface";
+import {UserService} from "./user.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
 
   constructor(
     private router: Router,
     private authService: AuthService,
+    private userService: UserService,
     private cookieService: CookieService
   ) {
     const cookieToken:string = this.cookieService.get('tokenNexiumias');
-    console.log(cookieToken);
+    // console.log(cookieToken);
 
     if (cookieToken){
       this.loginWithCookie(cookieToken);
@@ -33,10 +36,11 @@ export class AppComponent {
 
 
   AppEnv: string = "DEV"; // DEV or PROD
-  isLoggedIn: boolean = false;
-  token: string|any;
   urlApiDev: string = "https://127.0.0.1:8000";
   urlApiProd: string = "https://nexiumia.fr:8000";
+  isLoggedIn: boolean = false;
+  token: string|any;
+  userConnected: UserInterface|any;
 
 
   /******************************************************************************************************************
@@ -47,7 +51,7 @@ export class AppComponent {
 
   // DECONNEXION
   loggout(){
-    // a faire : SUPPRIMER LE COOKIE
+    this.cookieService.delete('tokenNexiumias');
     this.isLoggedIn = false;
     this.token = undefined;
     this.router.navigate(['/']);
@@ -64,7 +68,7 @@ export class AppComponent {
 
       this.authService.postLogin(email, passwordhased, this.setURL()).subscribe(reponseToken => {
 
-        console.log(reponseToken.token)
+        // console.log(reponseToken.token)
         this.token = reponseToken.token;
 
         if (this.token){
@@ -72,8 +76,15 @@ export class AppComponent {
           if (saveme){
             this.cookieService.set('tokenNexiumias', this.token);
           }
-          this.isLoggedIn = true;
-          this.router.navigate(['/home']);
+
+          this.userService.getUserOneToken(this.setURL(), this.createCorsToken()).subscribe(reponseUser => {
+
+            this.isLoggedIn = true;
+            this.userConnected = reponseUser;
+            this.router.navigate(['/home']);
+
+
+          })
 
         }
 
@@ -85,9 +96,13 @@ export class AppComponent {
 
   //Login Avec le Cookie
   loginWithCookie(cookieToken: string){
-    this.isLoggedIn = true;
     this.token = cookieToken;
-    this.router.navigate(['/home']);
+    this.userService.getUserOneToken(this.setURL(), this.createCorsToken()).subscribe(reponseUser => {
+
+      this.isLoggedIn = true;
+      this.userConnected = reponseUser;
+
+    })
   }
 
 
@@ -96,7 +111,6 @@ export class AppComponent {
 
     if (!this.token){
       this.isLoggedIn = false;
-      this.router.navigate(['/']);
     }
 
   }
@@ -128,5 +142,6 @@ export class AppComponent {
     }
 
   }
+
 
 }

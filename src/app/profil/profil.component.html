@@ -1,17 +1,84 @@
-<div class="start-page">
-  <h2>{{ title }}</h2>
-  <p>{{ description }}</p>
-  <hr>
-  <br>
-</div>
+<section id="profil">
+
+  <div class="wrapper">
 
 
-<div>
+    <div class="student-details expanded" *ngIf="isDetailsShowing()">
+      <div class="gravatar">
+        <img src="https://avatars.githubusercontent.com/u/63310746?v=4" width="200" height="200" />
+      </div>
+      <h2 class="student-name">{{ this.userConnected.firstName }} {{ this.userConnected.lastName }}</h2>
+      <p class="student-email">{{ this.userConnected.email }}</p>
+    </div>
+
+    <div class="forms">
+      <div class="tabs edit-profile" (click)="tabHandler('edit-profile')">
+        <h3>Modifier votre profil</h3>
+      </div>
+      <div class="tab-content edit-profile-form-wrap" *ngIf="isEditProfileShowing()">
+        <!--  --><form class="edit-profile-form">
+        <div class="form-control first-name">
+          <label for="first-name">Votre Prénom&#58;</label>
+          <input type="text" class="textbox" id="first-name" value="{{ this.userConnected.firstName }}">
+        </div>
+        <div class="form-control first-name">
+          <label for="last-name">Votre Nom&#58;</label>
+          <input type="text" class="textbox" id="last-name" value="{{ this.userConnected.lastName }}">
+        </div>
+        <div class="form-control email">
+          <label for="email">E-mail&#58;</label>
+          <input type="text" class="textbox" id="email" value="{{ this.userConnected.email }}">
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="primary-btn" value="Update Profile">Modifier</button>
+        </div>
+      </form>
+      </div>
+      <div class="tabs change-password" (click)="tabHandler('change-password')">
+        <h3>Changer votre mots de passe</h3>
+      </div>
+      <div class="tab-content change-password-form-wrap" *ngIf="isChangePasswordShowing()">
+        <form class="edit-profile-form">
+        <div class="form-control first-name">
+          <label for="current-password">Mots de passe actuelle&#58;</label>
+          <input type="text" class="textbox" id="current-password">
+        </div>
+        <div class="form-control first-name">
+          <label for="new-password">Nouveau Mots de passe&#58;</label>
+          <input type="text" class="textbox" id="new-password">
+        </div>
+        <div class="form-control email">
+          <label for="confirm-password">Confirmez Le nouveau mots de passe&#58;</label>
+          <input type="text" class="textbox" id="confirm-password">
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="primary-btn" value="Change Password">Changer de mots de passe</button>
+        </div>
+      </form>
+
+      </div>
+      <div class="tabs loggout" (click)="loggout()">
+        <h3>Se déconnecter</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
 
 
 
-  <button (click)="loggout()" class="btn btn-danger">Logout</button>
-</div>
+<style>
+
+
+</style>
+
+
+
+
+
+
+
+
 

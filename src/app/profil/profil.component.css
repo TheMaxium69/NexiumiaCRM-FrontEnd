@@ -1,0 +1,114 @@
+
+/* Student Details (Read-Only) */
+#profil .student-details{
+  height:0;
+  text-align:center;
+  transition:all .25s ease-in-out;
+  overflow:hidden;
+  opacity:0;
+  background: #f3f3f3;
+}
+
+#profil .student-details.expanded{
+  height: 350px;
+  padding-bottom:30px;
+  opacity:1;
+}
+
+#profil .gravatar{
+  width: 200px;
+  height: 200px;
+  padding-top: 30px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+#profil .gravatar img{
+  border-radius:100%;
+}
+
+#profil .student-name,.student-email{
+  margin:5px 0 0 0;
+}
+
+#profil .student-email{
+  color:#616062;
+}
+
+/* Tabbed Content */
+#profil .tabs{
+  background:#fff;
+  padding:20px;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+}
+
+#profil .tabs:hover{
+  cursor:pointer;
+}
+
+#profil .tabs h3{
+  margin:0;
+}
+
+#profil .tab-content{
+  /*height:0;*/
+  background:#E8E8E8;
+  box-sizing:border-box;
+  transition:height .25s ease-in-out;
+  /*overflow:hidden;*/
+}
+
+#profil .tab-content.expanded{
+  height:320px;
+}
+
+#profil .tab-content form{
+  padding:15px 20px;
+}
+
+#profil .tab-content .form-control{
+  padding-bottom:15px;
+}
+
+#profil .tab-content .form-control label{
+  display:block;
+}
+
+#profil .tab-content .form-control .textbox{
+  width:100%;
+  font-size:14px;
+  border:1px solid #aaa;
+  border-radius:5px;
+  box-sizing:border-box;
+  padding:10px;
+  margin:5px 0;
+  display:block;
+}
+
+#profil .tab-content .form-buttons button{
+  font-size:14px;
+  border-radius:5px;
+  padding:10px;
+}
+
+#profil .primary-btn{
+  width:100%;
+  color:#fff;
+  background-color: #656C9A;
+  border:1px solid #656C9A;
+  display:block;
+}
+
+#profil .secondary-btn{
+  color:#0e6aa6;
+  background-image:linear-gradient(to bottom, #ffffff, #c4c4c4);
+  border:1px solid #d0d0d0;
+}
+
+/* Typography */
+#profil h1, #profil h2, #profil h3, #profil h4, #profil h5, #profil h6{
+  font-weight:normal;
+}
+
+
