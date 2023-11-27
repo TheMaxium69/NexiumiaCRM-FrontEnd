@@ -1,3 +1,5 @@
+import {AgencyInterface} from "./agency-interface";
+
 export interface ClientInterface {
     id:number;
     firstName:string;
@@ -7,7 +9,7 @@ export interface ClientInterface {
     address:string;
     information:string;
     state:string;
-    // agency:string;
+    agency:AgencyInterface;
 }
 
 /*

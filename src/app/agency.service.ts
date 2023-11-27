@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AgencyInterface} from "./agency-interface";
 import {AppComponent} from "./app.component";
+import {ClientInterface} from "./client-interface";
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +17,7 @@ export class AgencyService {
     return this.http.get<AgencyInterface[]>(url + '/api/agencies', options);
   }
 
+  getAgencyOne(AgencyId: number, url: string, options : {headers: HttpHeaders} ): Observable<AgencyInterface> {
+    return this.http.get<AgencyInterface>(url + '/api/agency/' + AgencyId, options);
+  }
 }

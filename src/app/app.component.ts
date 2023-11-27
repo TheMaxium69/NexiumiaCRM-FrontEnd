@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "./auth.service";
 import {HttpHeaders} from "@angular/common/http";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,16 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private cookieService: CookieService
+  ) {
+    const cookieToken:string = this.cookieService.get('tokenNexiumias');
+    console.log(cookieToken);
+
+    if (cookieToken){
+      this.loginWithCookie(cookieToken);
+    }
+  }
 
 
   /******************************************************************************************************************
@@ -32,19 +41,20 @@ export class AppComponent {
 
   /******************************************************************************************************************
   *
-  * CONNEXIONNN
+  * CONNEXION
   *
   * ******************************************************************************************************************/
 
   // DECONNEXION
   loggout(){
+    // a faire : SUPPRIMER LE COOKIE
     this.isLoggedIn = false;
     this.token = undefined;
     this.router.navigate(['/']);
   }
 
   //LOGIN
-  login(email: string, password: string){
+  login(email: string, password: string, saveme: boolean){
 
     let passwordhased: string|any;
 
@@ -59,6 +69,9 @@ export class AppComponent {
 
         if (this.token){
 
+          if (saveme){
+            this.cookieService.set('tokenNexiumias', this.token);
+          }
           this.isLoggedIn = true;
           this.router.navigate(['/home']);
 
@@ -70,13 +83,13 @@ export class AppComponent {
 
   }
 
-  // LOGIN SANS SYMFONY
-  loginCheat(){
-
+  //Login Avec le Cookie
+  loginWithCookie(cookieToken: string){
     this.isLoggedIn = true;
+    this.token = cookieToken;
     this.router.navigate(['/home']);
-
   }
+
 
   // Verif la connexion
   verifToken() {

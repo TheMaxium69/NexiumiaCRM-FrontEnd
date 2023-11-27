@@ -19,18 +19,11 @@ export class ConnexionComponent {
 
     let email = form.value.email
     let password = form.value.password
-    // let saveme = form.value.saveme
+    let saveme = form.value.saveme
 
     console.log(form.value);
 
-    this.app.login(email, password);
-  }
-
-
-
-  loginCheat(){
-    console.log("TRICHEUR");
-    this.app.loginCheat();
+    this.app.login(email, password, saveme);
   }
 
 }

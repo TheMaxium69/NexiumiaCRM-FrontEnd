@@ -17,6 +17,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import {FormsModule} from "@angular/forms";
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

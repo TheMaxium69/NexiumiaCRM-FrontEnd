@@ -16,7 +16,8 @@ export class ClientComponent implements OnInit{
   clientAll: ClientInterface[]|any;
 
   constructor(private app: AppComponent,
-              private clientService: ClientService) { }
+              private clientService: ClientService,
+              private agencyService: AgencyService) { }
 
   ngOnInit(){
 

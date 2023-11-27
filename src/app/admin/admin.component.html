@@ -18,6 +18,7 @@
     <table class="table table-hover">
         <thead>
           <tr>
+            <th scope="col">Color</th>
             <th scope="col">Name</th>
             <th scope="col">Siret</th>
             <th scope="col">Tva</th>
@@ -25,6 +26,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let agency of agencyAll">
+            <td style="color: {{ agency.color }}"><i class="fa-solid fa-circle"></i></td>
             <td>{{ agency.name }}</td>
             <td>{{ agency.siret }}</td>
             <td>{{ agency.tva }}</td>

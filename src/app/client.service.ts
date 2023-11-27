@@ -14,4 +14,7 @@ export class ClientService {
   getClients(url: string, options : {headers: HttpHeaders} ): Observable<ClientInterface[]> {
     return this.http.get<ClientInterface[]>(url + '/api/clients', options);
   }
+  getClientOne(ClientID: number, url: string, options : {headers: HttpHeaders} ): Observable<ClientInterface> {
+    return this.http.get<ClientInterface>(url + '/api/client/' + ClientID, options);
+  }
 }
