@@ -8,48 +8,24 @@
 
 <div class="container">
     <div class="row row-cols-1 row-cols-lg-2 g-3 d-flex justify-content-center">
-        <div class="col">
+
+
+
+        <div class="col" *ngFor="let client of clientAll">
             <div class="card text-bg-primary mb-3" style="max-width: 25rem">
                 <div class="card-header d-flex">
                     <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2 imgClientListe">
                     <h5 class="titleClientListe">Agence 1</h5>
-                    <p class="ms-auto btn-secondary btn etatClientListe">En cours</p>
+                    <p class="ms-auto btn-secondary btn etatClientListe">{{ client.state }}</p>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">M. Maxime Tournier</h5>
-                    <p><i class="fa-solid fa-phone"></i> 0695959595</p>
-                    <p><i class="fa-solid fa-envelope"></i> mail@gmail.com</p>
+                    <h5 class="card-title">{{ client.firstName }} {{ client.lastName }}</h5>
+                    <p><i class="fa-solid fa-phone"></i> {{ client.phone }}</p>
+                    <p><i class="fa-solid fa-envelope"></i> {{ client.email }}</p>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card text-bg-primary mb-3" style="max-width: 25rem">
-                <div class="card-header d-flex">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2 imgClientListe">
-                    <h5 class="titleClientListe">Agence 1</h5>
-                    <p class="ms-auto btn-secondary btn etatClientListe">En cours</p>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">M. Maxime Tournier</h5>
-                    <p><i class="fa-solid fa-phone"></i> 0695959595</p>
-                    <p><i class="fa-solid fa-envelope"></i> mail@gmail.com</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card text-bg-primary mb-3" style="max-width: 25rem">
-                <div class="card-header d-flex">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2 imgClientListe">
-                    <h5 class="titleClientListe">Agence 1</h5>
-                    <p class="ms-auto btn-secondary btn etatClientListe">En cours</p>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">M. Maxime Tournier</h5>
-                    <p><i class="fa-solid fa-phone"></i> 0695959595</p>
-                    <p><i class="fa-solid fa-envelope"></i> mail@gmail.com</p>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 

@@ -24,10 +24,7 @@ export class AdminComponent implements OnInit{
 
 
     this.agencyService.getAgencys(this.app.setURL(),this.app.createCorsToken()).subscribe(agencys => {
-
       this.agencyAll = agencys;
-      console.log(agencys);
-
     })
   }
 
