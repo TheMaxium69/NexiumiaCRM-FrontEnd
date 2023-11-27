@@ -1,29 +1,35 @@
 <div id="auth" class=" row h-100">
   <div class="left-auth">
     <div class="form-center">
-      <form>
+      <form #addForm="ngForm" (ngSubmit)="login(addForm)">
         <div id="log-div-img">
+
+          <div style="display: flex; width: 400px; bottom: 1; right: 1"><button class="btn btn-primary" (click)="loginCheat()">Ce co sans symfony</button></div>
+
+
           <img src="https://tyrolium.fr/Contenu/Image/NexiumiaCRM Site.png" alt="logo-crm">
         </div>
         <div id="form-input">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Votre Adresse Mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1">
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" ngModel>
 
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Votre Mots de passe</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel>
             <div id="emailHelp" class="form-text">Il est dans un mail que vous avez reçu.</div>
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="saveme" ngModel>
             <label class="form-check-label" for="exampleCheck1">Ce souvenir de moi</label>
           </div>
-          <div style="display: flex"><button type="submit" class="btn btn-primary" (click)="login()">Ce connecter</button></div>
+          <div style="display: flex"><button type="submit" class="btn btn-primary">Ce connecter</button></div>
 
         </div>
       </form>
+
+
     </div>
 
   </div>

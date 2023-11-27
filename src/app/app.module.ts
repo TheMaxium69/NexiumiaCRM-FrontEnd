@@ -15,6 +15,8 @@ import { AddAgenceComponent } from './add-agence/add-agence.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ProfilComponent } from './profil/profil.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

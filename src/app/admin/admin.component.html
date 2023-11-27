@@ -13,7 +13,26 @@
         <button type="button" class="btn btn-secondary" routerLink="addAgence">Ajouter un client</button>
     </div>
 
-    <h2 class="text-center mt-3">Liste des techniciens</h2>
+    <h2 class="text-center mt-3">Liste des Agences</h2>
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Siret</th>
+            <th scope="col">Tva</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let agency of agencyAll">
+            <td>{{ agency.name }}</td>
+            <td>{{ agency.siret }}</td>
+            <td>{{ agency.tva }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+  <h2 class="text-center mt-3">Liste des techniciens</h2>
 
     <table class="table table-hover">
         <thead>
