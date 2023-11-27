@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-connexion',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class ConnexionComponent {
 
+  constructor(private app: AppComponent) {
+  }
+
+  login(){
+    this.app.login();
+  }
 }

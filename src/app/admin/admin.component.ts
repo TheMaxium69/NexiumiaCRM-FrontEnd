@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
+  title: string = 'Administration';
+  description: string = 'je suis la description a la page';
+
 }

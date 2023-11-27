@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  title: string = 'Page D\'Accueil';
+  description: string = 'je suis la description a la page';
+
 }

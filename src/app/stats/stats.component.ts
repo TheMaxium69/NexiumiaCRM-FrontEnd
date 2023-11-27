@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class StatsComponent {
 
+  title: string = 'Stastistique';
+  description: string = 'je suis la description a la page';
+
 }

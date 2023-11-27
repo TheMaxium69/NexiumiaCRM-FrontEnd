@@ -7,20 +7,42 @@
     flex-direction: column;
     flex-shrink: 0;
     color: white;
-    background-color: black;
+    /*background-color: black;*/
     padding: 5%;
     height: 100%;
+
+    background: linear-gradient(rgba(12, 30, 53, 0.80), rgba(12, 30, 53, 0.80)), url("https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg");
+    background-position: 62%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #navbar ul {
     height: 80%;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
 }
 
 #navbar i {
     margin-right: 5%;
 }
 
+#navbar ul a {
+  border-radius: unset;
+  border-bottom: solid transparent;
+  font-size: 21px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+  transition: color 0.3s;
+}
+
+#navbar ul li {
+  margin-top: 35px;
+}
+
 #navbar ul a:focus {
-    background-color: blue ;
+    /*background-color: #656C9A;*/
+    /*border-bottom: solid white;*/
+  text-decoration: underline;
 }

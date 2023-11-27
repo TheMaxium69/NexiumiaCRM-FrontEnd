@@ -1,0 +1,55 @@
+
+
+.left-auth {
+  width: 60%;
+  background: #D9D9D9;
+}
+
+.right-auth {
+  width: 40%;
+  background-image: url("https://tyrolium.fr/Contenu/Image/Background23.jpg");
+  background-position: 70%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#log-div-img{
+  display: flex;
+}
+
+#log-div-img img{
+  margin: auto;
+  width: 230px;
+  height: 230px;
+}
+
+#form-input{
+  margin-bottom: 120px;
+}
+
+.form-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.form-center form{
+  width: 75%;
+  margin: auto;
+}
+
+.row{
+  --bs-gutter-x: unset!important;
+}
+#auth .btn-primary{
+
+  background: #656C9A!important;
+  border-color: #656C9A!important;
+  width: 75%;
+  margin: 50px auto;
+}
+
+#auth input.form-control{
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}

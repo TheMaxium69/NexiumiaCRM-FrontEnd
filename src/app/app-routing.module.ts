@@ -9,9 +9,12 @@ import { AddTechnicienComponent } from './add-technicien/add-technicien.componen
 import { AddAgenceComponent } from './add-agence/add-agence.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import {ProfilComponent} from "./profil/profil.component";
+import {ConnexionComponent} from "./connexion/connexion.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'tache', component: TacheComponent},
   {path: 'client', component:ClientComponent},
   {path: 'admin', component: AdminComponent},
@@ -20,6 +23,7 @@ const routes: Routes = [
   {path: 'admin/addAdmin', component: AddAdminComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'profile', component: ProfilComponent},
+  {path: '**', component: PageNotFoundComponent},
 
 ];
 

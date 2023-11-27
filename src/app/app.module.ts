@@ -14,6 +14,7 @@ import { AddTechnicienComponent } from './add-technicien/add-technicien.componen
 import { AddAgenceComponent } from './add-agence/add-agence.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ProfilComponent } from './profil/profil.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProfilComponent } from './profil/profil.component';
     AddTechnicienComponent,
     AddAgenceComponent,
     AddAdminComponent,
-    ProfilComponent
+    ProfilComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

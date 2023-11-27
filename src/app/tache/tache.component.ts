@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TacheComponent {
 
+  title: string = 'Mes Tâches';
+  description: string = 'je suis la description a la page';
+
 }

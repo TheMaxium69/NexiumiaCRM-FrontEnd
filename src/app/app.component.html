@@ -1,8 +1,12 @@
-<div class=" row h-100">
+<div class=" row h-100" *ngIf="isLoggedIn">
   <div class="left">
     <app-navbar></app-navbar>
   </div>
   <div class="right">
     <router-outlet></router-outlet>
   </div>
+</div>
+
+<div class=" row h-100" *ngIf="!isLoggedIn">
+    <app-connexion></app-connexion>
 </div>
