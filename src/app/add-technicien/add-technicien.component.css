@@ -16,3 +16,9 @@ h2{
     justify-content: center;
     margin-top: 3%;
 }
+
+#addTechnicien .btn{
+  width: 100%;
+  background: #656C9A !important;
+  border-color: #656C9A !important;
+}

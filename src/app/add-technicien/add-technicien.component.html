@@ -1,33 +1,31 @@
 <h2 class="text-center">Ajouter un technicien</h2>
-<form id="addTechnicien">
+<form id="addTechnicien" #addForm="ngForm" (ngSubmit)="createTechni(addForm)">
     <div class="form-group">
-      <label for="">Nom</label>
-      <input type="email" class="form-control" id="" placeholder="naili">
+      <label>Nom</label>
+      <input type="text" class="form-control" placeholder="naili" name="lastName" ngModel>
     </div>
     <div class="form-group">
-        <label for="">Prénom</label>
-        <input type="email" class="form-control" id="" placeholder="marilyne">
+        <label>Prénom</label>
+        <input type="text" class="form-control" placeholder="marilyne" name="firstName" ngModel>
       </div>
       <div class="form-group">
-        <label for="">Adresse mail</label>
-        <input type="email" class="form-control" id="" placeholder="name@example.com">
+        <label>Adresse mail</label>
+        <input type="email" class="form-control" placeholder="name@example.com" name="email" ngModel>
       </div>
       <div class="form-group">
-        <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Métiers
-        </button>
-        <ul class="dropdown-menu w-50">
-          <li><a class="dropdown-item" href="#">Administration</a></li>
-          <li><a class="dropdown-item" href="#">Agriculture</a></li>
-          <li><a class="dropdown-item" href="#">Artisant</a></li>
-          <li><a class="dropdown-item" href="#">Travaux publics</a></li>
-        </ul>
-      </div>
+        <label>Profession</label>
+      <div class="form-floating">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="profession" ngModel>
+<!--          <option selected>&#45;&#45; Open this select menu &#45;&#45;</option>-->
+          <option *ngFor="let profession of professionAll" value="{{ profession.id }}">{{ profession.name }}</option>
+        </select>
+        <label for="floatingSelect">Profession Selectionné</label>
+      </div></div>
     <div class="form-group">
-      <label for="">Informations complémentaires</label>
-      <textarea class="form-control" id="" rows="3"></textarea>
+      <label>Informations complémentaires</label>
+      <textarea class="form-control" rows="3" name="content" ngModel></textarea>
     </div>
     <div class="submit">
-        <button type="button" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
     </div>
   </form>

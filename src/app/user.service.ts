@@ -29,4 +29,18 @@ export class UserService {
   getUserOneToken(url: string, options : {headers: HttpHeaders} ): Observable<UserInterface> {
     return this.http.get<UserInterface>(url + '/api/token', options);
   }
+
+
+  // Create User Techni
+  postUserTechni(body: string, url:string, options : {headers: HttpHeaders} ): Observable<any> {
+    return this.http.post<any>(url+'/api/createTechnicien', body, options);
+  }
+
+  // Create User Admin
+  postUserAdmin(body: string, url:string, options : {headers: HttpHeaders} ): Observable<any> {
+    return this.http.post<any>(url+'/api/createAdmin', body, options);
+  }
+
+
+
 }

@@ -54,6 +54,7 @@ export class AppComponent{
     this.cookieService.delete('tokenNexiumias');
     this.isLoggedIn = false;
     this.token = undefined;
+    this.userConnected = undefined;
     this.router.navigate(['/']);
   }
 

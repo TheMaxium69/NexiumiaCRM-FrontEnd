@@ -19,6 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
 import { ClientDetailComponent } from './client-detail/client-detail.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
     AddAdminComponent,
     ProfilComponent,
     PageNotFoundComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
