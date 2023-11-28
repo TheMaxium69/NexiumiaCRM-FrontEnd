@@ -9,21 +9,23 @@ import { AddTechnicienComponent } from './add-technicien/add-technicien.componen
 import { AddAgenceComponent } from './add-agence/add-agence.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import {ProfilComponent} from "./profil/profil.component";
-import {ConnexionComponent} from "./connexion/connexion.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {ClientDetailComponent} from "./client-detail/client-detail.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'home', redirectTo: '', pathMatch: 'full'},
   {path: 'tache', component: TacheComponent},
-  {path: 'client', component:ClientComponent},
+  {path: 'client', component: ClientComponent},
+  {path: 'client/:id', component: ClientDetailComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'admin/addTechnicien', component: AddTechnicienComponent},
   {path: 'admin/addAgence', component: AddAgenceComponent},
   {path: 'admin/addAdmin', component: AddAdminComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'profile', component: ProfilComponent},
-  {path: '**', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '404', pathMatch: 'full'},
+  {path: '404', component: PageNotFoundComponent},
 
 ];
 

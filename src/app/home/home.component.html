@@ -58,7 +58,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let client of clientAll">
+      <tr *ngFor="let client of clientAll" routerLink="/client/{{ client.id }}">
         <td>{{ client.firstName }} {{ client.lastNameName }}</td>
         <td>{{ client.email }}</td>
         <td>{{ client.agency.name }}</td>

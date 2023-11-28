@@ -1,1 +1,75 @@
-<p>client-detail works!</p>
+<section id="clientOne">
+
+  <h2>Un Lead</h2>
+
+  <div class="head-div-color" style="background-color: {{ this.clientSelected.agency.color }};border: solid 3px {{ this.clientSelected.agency.color }}">
+      <div class="head-div">
+        <div class="head-div-content">
+
+          <div class="head-div-entete row">
+
+            <div class="d-flex">
+
+              <img src="{{ this.clientSelected.agency.path }}" alt="" width="40" height="40" class="rounded-circle me-2 imgClientListe" style="margin-top: 4px">
+              <h5 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 24px;">{{ this.clientSelected.agency.name }}</h5>
+
+              <p class="ms-auto btn-secondary btn etatClientListe" style="font-size: 19px; margin-bottom: unset;">{{ this.clientSelected.state }}</p>
+
+            </div>
+
+          </div>
+
+          <hr style="background-color:  {{ this.clientSelected.agency.color }}; border-top: 1px solid rgba(0,0,0,.1);">
+
+          <div class="head-div-text">
+            <h1>{{ this.clientSelected.firstName }} {{ this.clientSelected.lastName }}</h1>
+            <p><i class="fa-solid fa-envelope"></i> <a href="mailto:{{ this.clientSelected.email }}">{{ this.clientSelected.email }}</a></p>
+            <p><i class="fa-solid fa-phone"></i> <a href="tel:{{ this.clientSelected.phone }}">{{ this.clientSelected.phone }}</a></p>
+            <p><i class="fa-solid fa-pen"></i> {{ this.clientSelected.information }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+  </div>
+
+      <div class="first-btn">
+
+        <div class="row">
+
+          <div class="col">
+            <div style="display: flex"><button routerLink="/404" class="btn btn-primary">Ajouter un appel</button></div>
+          </div>
+          <div class="col">
+            <div style="display: flex"><button routerLink="/404" class="btn btn-primary">Ajouter une intervention</button></div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+      <hr>
+
+
+
+<!--  TIME LINE INTERVENTION  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
