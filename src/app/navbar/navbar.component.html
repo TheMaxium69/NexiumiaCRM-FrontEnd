@@ -8,7 +8,7 @@
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
             <a routerLink="/home"class="nav-link text-white" aria-current="page">
-                <i class="fa-solid fa-house"></i>Home
+                <i class="fa-solid fa-house"></i>Dashboard
             </a>
           </li>
           <li>
@@ -18,12 +18,17 @@
           </li>
           <li>
             <a routerLink="/client" class="nav-link text-white">
-              <i class="fa-solid fa-users"></i>Clients
+              <i class="fa-solid fa-users"></i>Leads
             </a>
           </li>
           <li>
-            <a routerLink="/admin" class="nav-link text-white">
-                <i class="fa-solid fa-lock"></i>Admin
+            <a routerLink="/agence" class="nav-link text-white">
+              <i class="fa-solid fa-building"></i>Agences
+            </a>
+          </li>
+          <li>
+            <a routerLink="/invoice" class="nav-link text-white">
+              <i class="fa-solid fa-copy"></i>Factures
             </a>
           </li>
           <li>
@@ -31,12 +36,17 @@
               <i class="fa-solid fa-arrow-trend-up"></i>Statistiques
             </a>
           </li>
+          <li>
+            <a routerLink="/admin" class="nav-link text-white">
+              <i class="fa-solid fa-gears"></i>Parametre
+            </a>
+          </li>
         </ul>
         <hr>
         <div class="dropdown">
           <a routerLink="/profile" class="d-flex align-items-center text-white text-decoration-none ">
             <img src="https://avatars.githubusercontent.com/u/63310746?v=4" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>{{ this.userConnected.firstName }} {{ this.userConnected.lastName }}</strong>
+            <strong>{{ this.userConnected.firstName }} {{ this.userConnected.lastName }} <i style="margin-right: unset!important; font-size: 13px;" class="fa-solid fa-caret-right"></i></strong>
           </a>
         </div>
       </div>

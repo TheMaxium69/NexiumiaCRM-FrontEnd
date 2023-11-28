@@ -13,7 +13,7 @@
 
     <div class="forms">
       <div class="tabs edit-profile" (click)="tabHandler('edit-profile')">
-        <h3>Modifier votre profil</h3>
+        <h3><i class="fa-solid fa-user-gear"></i> Modifier votre profil</h3>
       </div>
       <div class="tab-content edit-profile-form-wrap" *ngIf="isEditProfileShowing()">
         <!--  --><form class="edit-profile-form">
@@ -35,7 +35,7 @@
       </form>
       </div>
       <div class="tabs change-password" (click)="tabHandler('change-password')">
-        <h3>Changer votre mots de passe</h3>
+        <h3><i class="fa-solid fa-key"></i> Changer votre mots de passe</h3>
       </div>
       <div class="tab-content change-password-form-wrap" *ngIf="isChangePasswordShowing()">
         <form class="edit-profile-form">
@@ -58,7 +58,7 @@
 
       </div>
       <div class="tabs loggout" (click)="loggout()">
-        <h3>Se déconnecter</h3>
+        <h3><i class="fa-solid fa-arrow-right-from-bracket"></i> Se déconnecter</h3>
       </div>
     </div>
 

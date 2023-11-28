@@ -6,4 +6,68 @@
 </div>
 
 
-<h2>Bienvenue {{ this.userConnected.firstName }}</h2>
+<section id="dashboard">
+
+  <h2>Bienvenue {{ this.userConnected.firstName }}</h2>
+
+  <div class="row noRowBase">
+
+    <div class="col">
+
+      <div class="no-color">
+
+        <div class="row">
+          <div class="col div-stats"><h3>42</h3><h6>New leads this week</h6></div>
+          <div class="col div-stats"><h3>8,312€</h3><h6>Sales this week</h6></div>
+        </div>
+
+        <div class="row">
+          <div class="col div-stats"><h3>233</h3><h6>New leads this month</h6></div>
+          <div class="col div-stats"><h3>24,748€</h3><h6>Sales this month</h6></div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+    <div class="col">
+
+      <div class="div-color hCalc no-mL">
+
+        <h3>Tâches</h3>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="div-color">
+
+
+    <h3>New Leads</h3>
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Agence</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let client of clientAll">
+        <td>{{ client.firstName }} {{ client.lastNameName }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.agency.name }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+</section>
+

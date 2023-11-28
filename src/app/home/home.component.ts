@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AppComponent} from "../app.component";
 import {UserInterface} from "../user-interface";
+import {ClientInterface} from "../client-interface";
+import {ClientService} from "../client.service";
 
 @Component({
   selector: 'app-home',
@@ -9,10 +11,14 @@ import {UserInterface} from "../user-interface";
 })
 export class HomeComponent implements OnInit {
 
-  title: string = 'Page D\'Accueil';
-  description: string = 'je suis la description a la page';
+  title: string = 'Dashboard';
+  description: string = 'Voici le dahsboard de NexiumiasCRM';
+  clientAll: ClientInterface[]|any;
 
-  constructor(private app: AppComponent) { }
+  constructor(
+    private app: AppComponent,
+    private clientService: ClientService,
+  ) { }
 
   userConnected: UserInterface|any = this.app.userConnected;
 
@@ -20,6 +26,13 @@ export class HomeComponent implements OnInit {
 
     //VERIF TOKEN
     this.app.verifToken();
+
+    this.clientService.getClients(this.app.setURL(),this.app.createCorsToken()).subscribe(clients => {
+
+      this.clientAll = clients;
+      console.log(this.clientAll);
+
+    })
 
   }
 

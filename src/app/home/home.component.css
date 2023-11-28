@@ -1,0 +1,42 @@
+#dashboard h2{
+  margin-left: 20px;
+}
+
+#dashboard .div-color{
+  background: #f3f3f3;
+  margin: 10px 50px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  border-radius: 11px;
+  padding: 30px;
+}
+
+#dashboard .hCalc{
+  height: calc(100% - 20px);
+  margin: 10px 40px;
+}
+
+#dashboard .no-mL{
+  margin-left: 0px;
+}
+
+#dashboard .no-color{
+  margin-left: 40px;
+}
+
+#dashboard .div-stats{
+  background: #f3f3f3;
+  margin: 10px;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  border-radius: 11px;
+}
+
+#dashboard .table > :not(caption) > * > * {
+  background: unset!important;
+}
+
+#dashboard .noRowBase{
+  margin-right: unset;
+  margin-left: unset;
+}
