@@ -21,6 +21,11 @@ export class UserService {
   }
 
   //Recupere une seule User
+  getUsers(url: string, options : {headers: HttpHeaders} ): Observable<UserInterface[]> {
+    return this.http.get<UserInterface[]>(url + '/api/users', options);
+  }
+
+  //Recupere une seule User
   getUserOne(UserID: number, url: string, options : {headers: HttpHeaders} ): Observable<UserInterface> {
     return this.http.get<UserInterface>(url + '/api/user/' + UserID, options);
   }
