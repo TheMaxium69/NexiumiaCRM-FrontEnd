@@ -33,6 +33,7 @@ export class AdminComponent implements OnInit{
 
     this.userService.getUsers(this.app.setURL(),this.app.createCorsToken()).subscribe(users => {
       this.userAll = users;
+      console.log(this.userAll)
     })
   }
 

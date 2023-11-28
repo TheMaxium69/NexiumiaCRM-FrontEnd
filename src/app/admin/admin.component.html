@@ -47,7 +47,10 @@
           <tr *ngFor="let user of userAll">
             <td>{{ user.lastName }}</td>
             <td>{{ user.firstName }}</td>
-<!--            <td *ngFor="let role of user.role">{{ role }}</td>-->
+            <td *ngFor="let role of user.roles">
+              <div *ngIf="role == 'ROLE_ADMIN'">Administrateur</div>
+              <div *ngIf="role == 'ROLE_TECHNICIEN'">Techniciens</div>
+            </td>
           </tr>
         </tbody>
       </table>
