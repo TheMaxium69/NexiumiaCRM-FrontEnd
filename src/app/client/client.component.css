@@ -67,3 +67,21 @@
 #client .wrap{
   margin-bottom: 50px;
 }
+
+#client #filtre {
+
+}
+
+#client #filtre .dropdown{
+  display: flex;
+}
+
+#client #filtre .btn-secondary{
+
+  background: #656C9A !important;
+  border-color: #656C9A !important;
+  width: 100%;
+  margin: 0px auto;
+}
+
+

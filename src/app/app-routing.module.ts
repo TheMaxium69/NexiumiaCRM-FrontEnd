@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'client/:id', component: ClientDetailComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'admin/addUser', component: AddUserComponent},
-  {path: 'admin/addAdmin', component: AddAdminComponent},
+  {path: 'admin/addAgence', component: AddAgenceComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'profile', component: ProfilComponent},
   {path: '**', redirectTo: '404', pathMatch: 'full'},

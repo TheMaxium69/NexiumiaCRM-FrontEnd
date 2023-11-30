@@ -25,51 +25,46 @@
 
     <small>Filtre : </small>
 
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Sélectionnez une agence :
-      </button>
-      <ul class="dropdown-menu">
-            <li *ngFor="let agence of agenceAll" >
-              <input type="checkbox" [checked]="isSelected(agence)" (change)="toggleSelection(agence)"/> {{agence.name}}
-            </li>
-      </ul>
+    <div id="filtre" class="row">
+
+      <div class="dropdown col-2">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Agence :
+        </button>
+        <ul class="dropdown-menu">
+          <ng-container *ngFor="let agence of agenceAll" >
+            <li><button class="dropdown-item"><input type="checkbox" [checked]="isSelected(agence)" (change)="toggleSelection(agence)"/> {{agence.name}}</button></li>
+          </ng-container>
+
+        </ul>
+      </div>
+
+      <div class="dropdown col-2">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Status :
+        </button>
+        <ul class="dropdown-menu">
+          <ng-container  >
+            <li><button class="dropdown-item"><input type="checkbox" /> {{ "none" }}</button></li>
+          </ng-container>
+
+        </ul>
+      </div>
+
     </div>
 
   </div>
 
-      <div class="row row-cols-1 row-cols-lg-2 g-3 d-flex justify-content-center">
-        <div class="col" *ngFor="let client of clientRechercher">
+  <div class="row row-cols-1 row-cols-lg-2 g-3 d-flex justify-content-center">
 
 <!-- SANS FILTRE -->
-          <article *ngIf="isSelectedAngency == 0">
-            <div class="card mb-3" style="margin: auto; max-width: 25rem; background-color: {{ client.agency.color }}!important;">
-              <div class="card-header d-flex">
-                <img src="{{ client.agency.path }}" alt="" width="32" height="32" class="rounded-circle me-2 imgClientListe" style="margin-top: 4px">
-                <h5 class="titleClientListe" style="margin-bottom: unset; line-height: 1.6;">{{ client.agency.name }}</h5>
-                <p class="ms-auto btn-secondary btn etatClientListe" style="font-size: 14px; margin-bottom: unset;">{{ client.state }}</p>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">{{ client.firstName }} {{ client.lastName }}</h3>
-                <p><i class="fa-solid fa-phone"></i> {{ client.phone }}</p>
-                <p><i class="fa-solid fa-envelope"></i> {{ client.email }}</p>
-
-
-                <div style="display: flex"><button routerLink="/client/{{ client.id }}" class="btn btn-primary">Plus d'information</button></div>
-              </div>
-
-            </div>
-          </article>
-
-<!-- AVEC FILTRE -->
-          <article *ngIf="isSelectedAngency !== 0">
-            <div *ngFor="let agency of selectedAgency">
-              <!--<p>{{ agency.id }} / {{ client.agency.id }}</p>-->
-              <div *ngIf="agency.id == client.agency.id">
-                <div class="card mb-3" style="margin: auto; max-width: 25rem; background-color: {{ agency.color }}!important;">
+          <ng-container *ngIf="isSelectedAngency == 0">
+            <ng-container *ngFor="let client of clientRechercher">
+              <div class="col">
+                <div class="card mb-3" style="margin: auto; max-width: 25rem; background-color: {{ client.agency.color }}!important;">
                   <div class="card-header d-flex">
-                    <img src="{{ agency.path }}" alt="" width="32" height="32" class="rounded-circle me-2 imgClientListe" style="margin-top: 4px">
-                    <h5 class="titleClientListe" style="margin-bottom: unset; line-height: 1.6;">{{ agency.name }}</h5>
+                    <img src="{{ client.agency.path }}" alt="" width="32" height="32" class="rounded-circle me-2 imgClientListe" style="margin-top: 4px">
+                    <h5 class="titleClientListe" style="margin-bottom: unset; line-height: 1.6;">{{ client.agency.name }}</h5>
                     <p class="ms-auto btn-secondary btn etatClientListe" style="font-size: 14px; margin-bottom: unset;">{{ client.state }}</p>
                   </div>
                   <div class="card-body">
@@ -83,11 +78,38 @@
 
                 </div>
               </div>
-            </div>
+            </ng-container>
+          </ng-container>
 
-          </article>
+<!-- AVEC FILTRE -->
+          <ng-container *ngIf="isSelectedAngency !== 0">
+            <ng-container *ngFor="let agency of selectedAgency">
+              <ng-container *ngFor="let client of clientRechercher">
+<!--                <p>{{ agency.id }} / {{ client.agency.id }}</p>-->
+                <ng-container  *ngIf="agency.id == client.agency.id">
+                  <div class="col">
+                    <div class="card mb-3" style="margin: auto; max-width: 25rem; background-color: {{ agency.color }}!important;">
+                      <div class="card-header d-flex">
+                        <img src="{{ agency.path }}" alt="" width="32" height="32" class="rounded-circle me-2 imgClientListe" style="margin-top: 4px">
+                        <h5 class="titleClientListe" style="margin-bottom: unset; line-height: 1.6;">{{ agency.name }}</h5>
+                        <p class="ms-auto btn-secondary btn etatClientListe" style="font-size: 14px; margin-bottom: unset;">{{ client.state }}</p>
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">{{ client.firstName }} {{ client.lastName }}</h3>
+                        <p><i class="fa-solid fa-phone"></i> {{ client.phone }}</p>
+                        <p><i class="fa-solid fa-envelope"></i> {{ client.email }}</p>
 
-        </div>
+
+                        <div style="display: flex"><button routerLink="/client/{{ client.id }}" class="btn btn-primary">Plus d'information</button></div>
+                      </div>
+
+                    </div>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+
       </div>
 
   <!-- SANS RIEN FILTRE -->

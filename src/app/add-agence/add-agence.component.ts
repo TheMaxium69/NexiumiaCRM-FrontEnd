@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AddAgenceComponent {
 
+  title: string = 'Ajout une Agence';
+  description: string = 'je suis la description a la page';
+
 }
