@@ -6,20 +6,130 @@
 </div>
 
 
-<section id="addAgence">
+<section id="addSectionAgence">
   <div class="row">
 
     <div class="left-ag">
 
+
+    <form id="addAgence" #addForm="ngForm" (ngSubmit)="createAgence(addForm)">
+      <div class="form-group">
+        <label>Raison Social (Name)</label>
+        <input #inputName (keyup)="showName(inputName.value)" type="text" class="form-control" placeholder="{{ nameDefault }}" name="name" ngModel>
+      </div>
+      <div class="form-group">
+        <label>Siret</label>
+        <input #inputSiret (keyup)="showSiret(inputSiret.value)" type="text" class="form-control" placeholder="{{ siretDefault }}" name="siret" ngModel>
+      </div>
+      <div class="form-group">
+        <label>tva intracommunautaire</label>
+        <input #inputTva (keyup)="showTva(inputTva.value)" type="text" class="form-control" placeholder="{{ tvaDefault }}" name="tva" ngModel>
+      </div>
+      <div class="form-group">
+        <label>Image</label>
+        <input type="file" class="form-control" placeholder="" name="path">
+      </div>
+      <div class="form-group">
+        <label>Couleur</label>
+        <input #inputColor (input)="showColor(inputColor.value)" type="color" class="form-control" placeholder="" name="color" ngModel>
+      </div>
+
+      <div class="form-group">
+        <label>Adresse mail</label>
+        <input #inputEmail (keyup)="showEmail(inputEmail.value)" type="email" class="form-control" placeholder="{{ emailDefault }}" name="email" ngModel>
+      </div>
+      <div class="form-group">
+        <label>Numéro de téléphone</label>
+        <input #inputPhone (keyup)="showPhone(inputPhone.value)" type="tel" class="form-control" placeholder="{{ phoneDefault }}" name="phone" ngModel>
+      </div>
+      <div class="submit">
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+      </div>
+    </form>
 
 
     </div>
 
     <div class="right-ag">
 
-      <div id="pdfCreateAgence">
+      <div id="pdfCreateAgence" style="box-shadow: 0px 0px 10px 0px {{ colorTemp }};">
+        <br>
+        <div class="entetepdf">
+          <img width="53px" src="https://seeklogo.com/images/1/1-1-logo-30C063CEFA-seeklogo.com.png">
+          <br>
+          <h4>{{ nameTemp }}</h4>
+          <h6>{{ siretTemp }}</h6>
+          <h6>{{ tvaTemp }}</h6>
+          <h6>{{ emailTemp }}</h6>
+          <h6>{{ phoneTemp }}</h6>
+        </div>
+        <br>
+        <h5>Facture-54-5468</h5>
+        <br>
+        <div class="fact-table">
+          <table>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>HT</th>
+              <th>TVA</th>
+              <th>TTC</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Intervention</td>
+              <td>2€</td>
+              <td>20%</td>
+              <td>30€</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <div class="fact-table">
+              <table>
+                <thead>
+                <tr>
+                  <th>Reglement</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>30 Jour Ouvré</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col">
+            <div class="fact-table-last">
+              <table>
+                <thead>
+                <tr>
+                  <th>TOTAL</th>
+                  <th>TTC</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td></td>
+                  <td>30€</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <br>
+          <br>
+          <small>
+            Sanctus et ea tempor ut clita et dolores lobortis eu assum. Illum stet clita erat volutpat est. Duis vero sed dolore sadipscing vero ullamcorper quod. Aliquip nam et tincidunt ea sed. Sea lorem dolore vero sit tempor ut dolore amet nibh. Elitr cum autem est sit feugiat feugiat nonumy amet amet et gubergren. Kasd velit tempor eos dolor tation gubergren illum sea et erat diam amet stet duo et. Nonumy takimata adipiscing diam sit nonumy accusam ea aliquip elitr labore voluptua.
+          </small>
 
 
+        </div>
       </div>
 
 

@@ -26,7 +26,7 @@ export class StatsComponent implements OnInit{
     this.agencyService.getAgencys(this.app.setURL(),this.app.createCorsToken()).subscribe(agencys => {
       this.agencyAll = agencys;
 
-      console.log(this.agencyAll)
+      // console.log(this.agencyAll)
     })
 
   }

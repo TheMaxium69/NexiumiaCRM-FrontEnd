@@ -21,4 +21,10 @@ export class AgencyService {
   getAgencyOne(AgencyId: number, url: string, options : {headers: HttpHeaders} ): Observable<AgencyInterface> {
     return this.http.get<AgencyInterface>(url + '/api/agency/' + AgencyId, options);
   }
+
+  // Create Agence
+  postAgency(body: string, url:string, options : {headers: HttpHeaders} ): Observable<any> {
+    return this.http.post<any>(url+'/api/createAgency', body, options);
+  }
+
 }

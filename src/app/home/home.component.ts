@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     this.clientService.getClients(this.app.setURL(),this.app.createCorsToken()).subscribe(clients => {
 
       this.clientAll = clients;
-      console.log(this.clientAll);
+      // console.log(this.clientAll);
 
     })
 
