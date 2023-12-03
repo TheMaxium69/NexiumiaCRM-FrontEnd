@@ -39,10 +39,10 @@
         <div class="row">
 
           <div class="col">
-            <div style="display: flex"><button routerLink="/404" class="btn btn-primary">Ajouter un appel</button></div>
+            <div style="display: flex"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAppelModal">Ajouter un appel</button></div>
           </div>
           <div class="col">
-            <div style="display: flex"><button routerLink="/404" class="btn btn-primary">Ajouter une intervention</button></div>
+            <div style="display: flex"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInterventionModal">Ajouter une intervention</button></div>
           </div>
 
 
@@ -56,20 +56,263 @@
 
 
 <!--  TIME LINE INTERVENTION  -->
+<section id="timeLine" class="d-flex">
+
+  <div id="arrow"> <hr> </div>
+
+  <div id="content">
+
+    <ng-container *ngIf="isInterventionSelected == true">
+      <ng-container *ngFor="let intervention of interventionAllSelected">
+
+        <div class="head-div-color intervention-color" *ngIf="intervention.title == 2">
+          <div class="head-div">
+            <div class="head-div-content">
+
+              <div class="head-div-entete row">
+
+                <div class="d-flex">
+
+                  <h1 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 24px;"><i class="fa-solid fa-screwdriver-wrench"></i> Intervention </h1>
+
+                  <p class="ms-auto btn-secondary btn etatClientListe" style="font-size: 19px; margin-bottom: unset;">
+
+                    <ng-container *ngIf="intervention.state == 1">
+                      En Cours
+                    </ng-container>
+
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div class="head-div-text">
+
+                <div class="row" style="margin-top: 20px">
+                  <div class="d-flex col">
+                    <img src="https://avatars.githubusercontent.com/u/63310746?v=4" alt="" width="40" height="40" class="rounded-circle me-2 imgClientListe" style="margin-top: 4px">
+                    <h5 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 24px;">{{ intervention.user.firstName }} {{ intervention.user.lastName }}</h5>
+                  </div>
+                  <div class="col">
+                    <h6 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 20px;text-align: end;margin-top: 4px;">{{ intervention.date }}</h6>
+                  </div>
+                </div>
+
+                <p><i class="fa-solid fa-file"></i> Devis generez : OUI (Fake Donne)</p>
+                <p><i class="fa-solid fa-pen"></i>  {{ intervention.information }}</p>
+
+                <div style="display: flex"><button class="btn btn-primary btn-option">Generez un devis</button></div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="head-div-color appel-color" *ngIf="intervention.title == 1">
+          <div class="head-div">
+            <div class="head-div-content">
+
+              <div class="head-div-entete row">
+
+                <div class="d-flex">
+
+                  <h1 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 24px;"><i class="fa-solid fa-phone"></i> Appel </h1>
+
+                  <p class="ms-auto btn-secondary btn etatClientListe" style="font-size: 19px; margin-bottom: unset;">
+
+                    <ng-container *ngIf="intervention.state == 1">
+                      En Cours
+                    </ng-container>
+
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div class="head-div-text">
+
+                <div class="row" style="margin-top: 20px">
+                  <div class="d-flex col">
+                    <img src="https://avatars.githubusercontent.com/u/63310746?v=4" alt="" width="40" height="40" class="rounded-circle me-2 imgClientListe" style="margin-top: 4px">
+                    <h5 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 24px;">{{ intervention.user.firstName }} {{ intervention.user.lastName }}</h5>
+                  </div>
+                  <div class="col">
+                    <h6 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 20px;text-align: end;margin-top: 4px;">{{ intervention.date }}</h6>
+                  </div>
+                </div>
+
+                <p><i class="fa-solid fa-pen"></i>  {{ intervention.information }}</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="isInterventionSelected == false">
+        <h1 style="text-align: center; margin-top: 5%;margin-bottom: 7%">Aucune Evenement</h1>
+    </ng-container>
+    <ng-container *ngIf="isInterventionSelected == true">
+      <div id="middleTimeLine">
+        <hr>
+      </div>
+    </ng-container>
+    <div class="head-div-color pay-color">
+      <div class="head-div">
+        <div class="head-div-content">
+
+          <div class="head-div-entete row">
+
+            <div class="d-flex">
+
+              <h1 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 24px;"><i class="fa-solid fa-landmark"></i> Payement </h1>
+
+              <p class="ms-auto btn-secondary btn etatClientListe" style="font-size: 19px; margin-bottom: unset;">
+
+                <ng-container *ngIf="isInterventionSelected == false">
+                  RSA
+                </ng-container>
+
+                <ng-container *ngIf="isInterventionSelected == true">
+
+                  Payement en attente
+
+                </ng-container>
+
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="head-div-text">
+
+            <p><i class="fa-solid fa-calendar"></i> Nombre d'evenement :
+
+              <ng-container *ngIf="isInterventionSelected == false">
+                0
+              </ng-container>
+
+              <ng-container *ngIf="isInterventionSelected == true">
+
+                {{ this.interventionAllSelected.length }}
+
+              </ng-container>
 
 
+            </p>
+            <p><i class="fa-solid fa-folder-open"></i> Nombre de devis generer : 1 (Fake Donne)</p>
+            <p><i class="fa-solid fa-file-arrow-up"></i> Facture envoyé : OUI (Fake Donne)</p>
+            <p><i class="fa-solid fa-clock"></i> Deadline du payment : 23 Octobre 23 (Fake Donne)</p>
 
 
+            <div class="d-flex" id="payementBtn">
+              <button class="btn btn-primary btn-option">Generez une facture</button>
+              <button class="btn btn-primary btn-option">Valider le payment</button>
+            </div>
+          </div>
 
+        </div>
 
+      </div>
 
+    </div>
 
+  </div>
 
+</section>
+<!--  \ TIME LINE INTERVENTION  -->
 
+  <!--- MODAL INTEVENTION --->
+  <div class="modal fade text-center" id="addInterventionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 40%!important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter une Intervention</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addIntervention" class="formulaireIntervetion" #addForm="ngForm" (ngSubmit)="createIntervention(addForm)">
 
+              <input type="hidden" name="client" [ngModel]="clientSelected.id" ngModel>
+              <input type="hidden" name="title" [ngModel]="2" ngModel>
 
+              <div class="form-group">
+                <label>Intervenant</label>
+                <div class="form-floating">
+                  <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="user" ngModel required>
+                    <option *ngFor="let user of userAll" value="{{ user.id }}"><ng-container *ngIf="user.id == this.userConnected.id">VOUS :</ng-container> {{ user.firstName }} {{ user.lastName }} <ng-container *ngIf="user.profession">- {{ user.profession.name }}</ng-container></option>
+                  </select>
+                  <label for="floatingSelect">Professionnel Selectionné</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Date</label>
+                <input type="date" class="form-control" name="date" [(ngModel)]="dateValue" required>
+              </div>
+              <div class="form-group">
+                <label>Informations complémentaires</label>
+                <textarea class="form-control" rows="10" name="content" ngModel></textarea>
+              </div>
 
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ajouter</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--- MODAL APPEL --->
+  <div class="modal fade text-center" id="addAppelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 40%!important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter un Appel</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addAppel" class="formulaireIntervetion" #addForm2="ngForm" (ngSubmit)="createIntervention(addForm2)">
 
+            <input type="hidden" name="client" [ngModel]="clientSelected.id" ngModel>
+            <input type="hidden" name="title" [ngModel]="1" ngModel>
+
+            <div class="form-group">
+              <label>Correspondant</label>
+              <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="user" ngModel required>
+                  <option *ngFor="let user of userAll" value="{{ user.id }}"><ng-container *ngIf="user.id == this.userConnected.id">VOUS :</ng-container> {{ user.firstName }} {{ user.lastName }} <ng-container *ngIf="user.profession">- {{ user.profession.name }}</ng-container></option>
+                </select>
+                <label for="floatingSelect">Correspondant Selectionné</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" class="form-control" name="date" [(ngModel)]="dateValue" required>
+            </div>
+            <div class="form-group">
+              <label>Informations complémentaires</label>
+              <textarea class="form-control" rows="10" name="content" ngModel></textarea>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ajouter</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </section>

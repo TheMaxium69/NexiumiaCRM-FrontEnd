@@ -41,6 +41,7 @@ export class AppComponent{
   isLoggedIn: boolean = false;
   token: string|any;
   userConnected: UserInterface|any;
+  curentDate: Date = new Date();
 
 
   /******************************************************************************************************************

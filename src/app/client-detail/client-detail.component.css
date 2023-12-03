@@ -64,3 +64,61 @@
   width: 90%;
   margin: 0px auto;
 }
+
+.formulaireIntervetion .form-group{
+    margin: 26px 0px;
+}
+
+.appel-color{
+  background-color: #71faff;
+}
+.intervention-color{
+  background-color: #71FFAD;
+}
+.pay-color{
+  background-color: #ffa8a8;
+}
+
+#timeLine .btn-option{
+
+  background: #656C9A !important;
+  border-color: #656C9A !important;
+  width: 90%;
+  margin: 0px auto;
+  border-radius: 15px;
+}
+
+#timeLine #arrow hr{
+  background: black;
+  opacity: 1;
+
+  border: 1px solid black;
+  height: 100%;
+  width: 1px;
+  margin: auto;
+}
+
+#timeLine{
+  margin-top: 20px;
+}
+
+#timeLine #arrow {
+
+  width: 10%;
+
+}
+#timeLine #content {
+
+  width: 90%;
+
+}
+
+#payementBtn .btn{
+  width: 33%!important;
+}
+
+#middleTimeLine{
+
+  margin-top: 80px!important;
+  margin-bottom: 50px!important;
+}

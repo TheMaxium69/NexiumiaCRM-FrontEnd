@@ -69,5 +69,30 @@
 
   </div>
 
+  <div class="div-color" style="margin-top: 20px">
+
+
+    <h3>Agences</h3>
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Color</th>
+        <th scope="col">Name</th>
+        <th scope="col">leads</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let agency of agencyAll">
+        <td style="color: {{ agency.color }}"><i class="fa-solid fa-circle"></i></td>
+        <td>{{ agency.name }}</td>
+        <td>{{ agency.clients.length }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
 </section>
 

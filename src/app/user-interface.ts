@@ -1,9 +1,15 @@
+import {InterventionService} from "./intervention.service";
+import {ProfessionInferface} from "./profession-inferface";
+
 export interface UserInterface {
 
   id:number,
   email:string,
   firstName:string,
   lastName:string
+  interventions:InterventionService,
+  roles:string[],
+  profession:ProfessionInferface|any
 
 }
 

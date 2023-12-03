@@ -60,7 +60,10 @@ export class AddClientComponent implements OnInit {
 
       if(reponseCreateClient['status'] == true){
         alert("CREER");
-        this.router.navigate(['/admin']);
+
+        let idUser:number = reponseCreateClient['id'];
+
+        this.router.navigate(['/client/'+idUser]);
       } else if (reponseCreateClient['status'] == false){
         alert(reponseCreateClient['message']);
       } else {

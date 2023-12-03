@@ -45,7 +45,7 @@ import { AddClientComponent } from './add-client/add-client.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
