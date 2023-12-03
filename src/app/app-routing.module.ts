@@ -12,6 +12,7 @@ import {ProfilComponent} from "./profil/profil.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {ClientDetailComponent} from "./client-detail/client-detail.component";
 import {AddUserComponent} from "./add-user/add-user.component";
+import {AddClientComponent} from "./add-client/add-client.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'admin/addUser', component: AddUserComponent},
   {path: 'admin/addAgence', component: AddAgenceComponent},
+  {path: 'addClient', component: AddClientComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'profile', component: ProfilComponent},
   {path: '**', redirectTo: '404', pathMatch: 'full'},

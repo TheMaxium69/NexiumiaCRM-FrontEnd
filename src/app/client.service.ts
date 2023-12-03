@@ -19,4 +19,9 @@ export class ClientService {
   getClientOne(ClientID: number, url: string, options : {headers: HttpHeaders} ): Observable<ClientInterface> {
     return this.http.get<ClientInterface>(url + '/api/client/' + ClientID, options);
   }
+
+  // Create Client
+  postClient(body: string, url:string, options : {headers: HttpHeaders} ): Observable<any> {
+    return this.http.post<any>(url+'/api/createClient', body, options);
+  }
 }

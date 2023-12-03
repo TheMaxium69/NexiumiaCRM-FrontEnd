@@ -20,6 +20,7 @@ import {FormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { AddClientComponent } from './add-client/add-client.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AddUserComponent } from './add-user/add-user.component';
     ProfilComponent,
     PageNotFoundComponent,
     ClientDetailComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddClientComponent
   ],
   imports: [
     BrowserModule,
