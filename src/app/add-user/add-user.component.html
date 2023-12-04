@@ -5,6 +5,12 @@
   <br>
 </div>
 
+<ng-container *ngFor="let licence of licenceAll">
+  <ng-container *ngIf="licence.content == 'users'">
+    <h3 style="text-align: center">Licence disponible : {{ licence.nb }} / {{ userAll.length + licence.nb }}</h3>
+  </ng-container>
+</ng-container>
+
 <div class="container">
 
   <div class="container-onglets">

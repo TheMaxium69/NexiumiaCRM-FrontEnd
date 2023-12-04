@@ -33,7 +33,13 @@
         </tbody>
       </table>
 
-  <h2 class="text-center mt-3">Liste des Utilisateur</h2>
+  <h2 class="text-center mt-3">Liste des Utilisateur
+    <ng-container *ngFor="let licence of licenceAll">
+      <ng-container *ngIf="licence.content == 'users'">
+         ({{ userAll.length }} / {{ userAll.length + licence.nb }})
+      </ng-container>
+    </ng-container>
+  </h2>
 
     <table class="table table-hover">
         <thead>

@@ -95,11 +95,12 @@
                     <h5 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 24px;">{{ intervention.user.firstName }} {{ intervention.user.lastName }}</h5>
                   </div>
                   <div class="col">
-                    <h6 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 20px;text-align: end;margin-top: 4px;">{{ intervention.date | date: 'HH:mm  dd/MM/yyyy' }}</h6>
+                    <h6 class="titleClientListe" style="margin-bottom: unset;line-height: 1.9;font-size: 20px;text-align: end;margin-top: 4px;" >{{ intervention.date | date: 'HH:mm  dd/MM/yyyy' }}</h6>
                   </div>
                 </div>
 
                 <p><i class="fa-solid fa-file"></i> Devis generez : OUI (Fake Donne)</p>
+                <p><i class="fa-solid fa-clock"></i> Durée : {{ getUpdateHours(intervention.duration) | date: 'HH:mm' }}</p>
                 <p><i class="fa-solid fa-pen"></i>  {{ intervention.information }}</p>
 
                 <div style="display: flex"><button class="btn btn-primary btn-option">Generez un devis</button></div>
@@ -145,6 +146,7 @@
                   </div>
                 </div>
 
+                <p><i class="fa-solid fa-clock"></i> Durée : {{ getUpdateHours(intervention.duration) | date: 'HH:mm' }}</p>
                 <p><i class="fa-solid fa-pen"></i>  {{ intervention.information }}</p>
               </div>
 
@@ -253,9 +255,21 @@
                   <label for="floatingSelect">Professionnel Selectionné</label>
                 </div>
               </div>
+              <div class="form-group d-flex">
+                <div style="width: 70%;">
+                  <label>Date</label>
+                  <input type="date" class="form-control" name="date" [(ngModel)]="dateDefaultValue" required>
+                </div>
+                <div style="width: 30%;">
+                  <label>Heure</label>
+                  <input type="time" class="form-control" name="time" [(ngModel)]="timeDefaultValue" required>
+                </div>
+              </div>
               <div class="form-group">
-                <label>Date</label>
-                <input type="datetime-local" class="form-control" name="date" [(ngModel)]="dateValue" required>
+              </div>
+              <div class="form-group">
+                <label>Durée</label>
+                <input type="time" class="form-control" name="duration" [(ngModel)]="durationDefaultValue" required>
               </div>
               <div class="form-group">
                 <label>Informations complémentaires</label>
@@ -294,9 +308,21 @@
                 <label for="floatingSelect">Correspondant Selectionné</label>
               </div>
             </div>
+            <div class="form-group d-flex">
+              <div style="width: 70%;">
+                <label>Date</label>
+                <input type="date" class="form-control" name="date" [(ngModel)]="dateDefaultValue" required>
+              </div>
+              <div style="width: 30%;">
+                <label>Heure</label>
+                <input type="time" class="form-control" name="time" [(ngModel)]="timeDefaultValue" required>
+              </div>
+            </div>
             <div class="form-group">
-              <label>Date</label>
-              <input type="datetime-local" class="form-control" name="date" [(ngModel)]="dateValue" required>
+            </div>
+            <div class="form-group">
+              <label>Durée</label>
+              <input type="time" class="form-control" name="duration" [(ngModel)]="durationDefaultValue" required>
             </div>
             <div class="form-group">
               <label>Informations complémentaires</label>

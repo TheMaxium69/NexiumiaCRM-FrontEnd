@@ -27,7 +27,9 @@ export class ClientDetailComponent implements OnInit{
 
   clientSelected: ClientInterface|any;
   userAll: UserService[]|any;
-  dateValue: string = this.app.curentDate.toISOString().split('T')[0];
+  dateDefaultValue: string = this.app.curentDate.toISOString().split('T')[0];
+  timeDefaultValue: string = this.formatHeure(this.app.curentDate);
+  durationDefaultValue: string = this.formatHeure(new Date(0, 0, 0, 1, 0));
   userConnected: UserInterface|any = this.app.userConnected;
   interventionAll: InterventionService[]|any
   interventionAllSelected: InterventionService[]|any = [];
@@ -37,6 +39,8 @@ export class ClientDetailComponent implements OnInit{
 
     //VERIF TOKEN
     this.app.verifToken();
+
+    this.app.curentDate = new Date();
 
     const cliendId: number|any = this.route.snapshot.paramMap.get('id');
 
@@ -66,7 +70,7 @@ export class ClientDetailComponent implements OnInit{
       }
 
 
-      console.log(this.interventionAllSelected)
+      // console.log(this.interventionAllSelected)
 
     })
   }
@@ -76,13 +80,16 @@ export class ClientDetailComponent implements OnInit{
     console.log(form.value)
 
     let date:string = form.value['date'];
+    let time:string = form.value['time'];
+    let duration:string = form.value['duration'];
     let content:string = form.value['content'];
     let typeID:string = form.value['title'];
     let userID:number = form.value['user'];
     let clientID:string = form.value['client'];
 
     let bodyNoJsonIntervention: any = {
-      "date":date,
+      "date":this.mergeDateAndTime(date, time),
+      "duration":duration,
       "information":content,
       "title":typeID,
       "user":userID,
@@ -105,6 +112,30 @@ export class ClientDetailComponent implements OnInit{
       }
 
     })
+  }
+
+  formatHeure(date: Date): string {
+    const heures = ('0' + date.getHours()).slice(-2);
+    const minutes = ('0' + date.getMinutes()).slice(-2);
+    return `${heures}:${minutes}`;
+  }
+
+  mergeDateAndTime(date:string, time:string){
+
+    const dateTimeString = `${date} ${time}`;
+
+    const mergedDate = new Date(dateTimeString);
+
+    return mergedDate;
+  }
+
+  getUpdateHours(date:Date){
+
+    const DateFormated = new Date(date)
+
+    DateFormated.setHours(DateFormated.getHours() - 1);
+
+    return DateFormated
   }
 
 }

@@ -4,6 +4,7 @@ import {UserInterface} from "./user-interface";
 export interface InterventionInterface {
   id:number;
   date:Date;
+  duration:Date;
   information:string;
   title:string;
   state:string;

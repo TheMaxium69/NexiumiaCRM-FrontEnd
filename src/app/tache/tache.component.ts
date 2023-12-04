@@ -16,7 +16,7 @@ export class TacheComponent implements OnInit, AfterViewInit {
   description: string = 'je suis la description a la page';
   userConnected: UserInterface|any = this.app.userConnected;
   currentDate: Date = this.app.curentDate;
-  SelectedDate: Date = this.currentDate;
+  SelectedDate: Date = new Date();
   interventionAll: InterventionInterface[]|any = this.userConnected.interventions;
 
 
@@ -35,6 +35,7 @@ export class TacheComponent implements OnInit, AfterViewInit {
     this.app.verifToken();
 
     this.currentDate = new Date();
+    this.SelectedDate = new Date();
 
   }
 
@@ -47,8 +48,8 @@ export class TacheComponent implements OnInit, AfterViewInit {
 
   updateCalendar() {
 
-    // console.log(this.SelectedDate)
-    // console.log(this.currentDate)
+    /*console.log(this.SelectedDate)
+    console.log(this.currentDate)*/
 
     // GENERATION DU CALENDAR
     let nbWeekOfCurrentDate: number = this.getWeekNumber(this.SelectedDate);
@@ -63,7 +64,7 @@ export class TacheComponent implements OnInit, AfterViewInit {
     if (SelectedDayOfWeek == 0){
       let SelectedDayOfWeekNewForma:number = 7;
       let SelectedDayDiv: HTMLElement | any = document.getElementById('day7');
-      if (this.SelectedDate.getDate() !== this.currentDate.getDate()){
+      if (this.SelectedDate.getDate() !== this.currentDate.getDate() || this.currentDate.getMonth() !== this.SelectedDate.getMonth() || this.currentDate.getFullYear() !== this.SelectedDate.getFullYear()){
         SelectedDayDiv.innerHTML = this.daysOfWeek[7] + " " + this.SelectedDate.getDate();
       } else {
         SelectedDayDiv.innerHTML = "<span style='background: #ea4335;border-radius: 100px;padding: 9px;color: white;'>" + this.daysOfWeek[7] + " " + this.SelectedDate.getDate() + "</span>";
@@ -71,7 +72,7 @@ export class TacheComponent implements OnInit, AfterViewInit {
 
     } else {
       let SelectedDayDiv: HTMLElement | any = document.getElementById('day' + SelectedDayOfWeek);
-      if (this.SelectedDate.getDate() !== this.currentDate.getDate()){
+      if (this.SelectedDate.getDate() !== this.currentDate.getDate() || this.currentDate.getMonth() !== this.SelectedDate.getMonth() || this.currentDate.getFullYear() !== this.SelectedDate.getFullYear()){
         SelectedDayDiv.innerHTML = this.daysOfWeek[SelectedDayOfWeek] + " " + this.SelectedDate.getDate();
       } else {
         SelectedDayDiv.innerHTML = "<span style='background: #ea4335;border-radius: 100px;padding: 9px;color: white;'>" + this.daysOfWeek[SelectedDayOfWeek] + " " + this.SelectedDate.getDate() + "</span>";
@@ -109,6 +110,7 @@ export class TacheComponent implements OnInit, AfterViewInit {
       let DivContent: HTMLElement | any = document.getElementById('content');
       let intervention:InterventionInterface = this.interventionAll[j-1];
       let interventionDate: Date = new Date(intervention.date)
+      let interventionDuration: Date = new Date(intervention.duration)
       interventionDate.setHours(interventionDate.getHours() -1);
 
       // console.log(intervention.date);
@@ -117,8 +119,8 @@ export class TacheComponent implements OnInit, AfterViewInit {
       let gridColumn:string = "grid-column: " + this.dateOfCollunDay[interventionDate.getDay()] + ";";
       // console.log(gridColumn)
 
-      let gridRow_start:number = interventionDate.getHours() + 1;
-      let gridRow_time:number = 1;
+      let gridRow_start:number = interventionDate.getHours() + 2;
+      let gridRow_time:number = interventionDuration.getHours() - 1;
       let gridRow:string = "grid-row: " + gridRow_start.toString() + "/span " +  gridRow_time.toString() + ";";
       // console.log(gridRow)
 
@@ -128,24 +130,31 @@ export class TacheComponent implements OnInit, AfterViewInit {
       */
 
       let TempVerif:number = interventionDate.getDay();
-      // console.log(interventionDate.getDay());
+      console.log(interventionDate);
       if (TempVerif == 0){
         TempVerif = 7;
       }
       // console.log(this.viewnDate[TempVerif]);
+      console.log((this.SelectedDate.getMonth() - 1))
+      if (this.viewnDate[TempVerif-1] == interventionDate.getDate() && interventionDate.getFullYear() == this.SelectedDate.getFullYear()){
+        if (interventionDate.getMonth() == this.SelectedDate.getMonth() || interventionDate.getMonth() == (this.SelectedDate.getMonth() - 1) || interventionDate.getMonth() == (this.SelectedDate.getMonth() + 1)){
+          let icone:string = "";
+          if (intervention.title == "1") {
+            icone = '<i class="fa-solid fa-phone"></i>';
+          } else if(intervention.title == "2") {
+            icone = '<i class="fa-solid fa-screwdriver-wrench"></i>';
+          }
 
-      if (this.viewnDate[TempVerif-1] == interventionDate.getDate()){
-
-        let icone:string = "";
-        if (intervention.title == "1") {
-          icone = '<i class="fa-solid fa-phone"></i>';
-        } else if(intervention.title == "2") {
-          icone = '<i class="fa-solid fa-screwdriver-wrench"></i>';
+          DivContent.innerHTML = DivContent.innerHTML + `
+              <div onclick="window.location.href = '/client/`+ intervention.client.id +`';" id="InterventionID-`+ intervention.id +`" class="event" style="background: `+ intervention.client.agency.color  + ";" +  gridColumn + gridRow +`"><div class="event-back">`+ icone + " " + intervention.client.firstName + " " +intervention.client.lastName +`</div></div>
+              ` + this.getStyleEvent();
+        } else {
+          /*console.log("A SUPPRIMER")*/
+          let DivInterventionJ: HTMLElement | any = document.getElementById('InterventionID-' + intervention.id);
+          if (DivInterventionJ){
+            DivInterventionJ.remove();
+          }
         }
-
-        DivContent.innerHTML = DivContent.innerHTML + `
-            <div onclick="window.location.href = '/client/`+ intervention.client.id +`';" id="InterventionID-`+ intervention.id +`" class="event" style="background: `+ intervention.client.agency.color  + ";" +  gridColumn + gridRow +`"><div class="event-back">`+ icone + " " + intervention.client.firstName + " " +intervention.client.lastName +`</div></div>
-            ` + this.getStyleEvent();
       } else {
           /*console.log("A SUPPRIMER")*/
           let DivInterventionJ: HTMLElement | any = document.getElementById('InterventionID-' + intervention.id);
@@ -169,7 +178,7 @@ export class TacheComponent implements OnInit, AfterViewInit {
     //
     // console.log(this.currentDate.getDate() == this.viewnDate[TempVerifCurrentBar-1])
 
-    if (this.currentDate.getDate() == this.viewnDate[TempVerifCurrentBar-1]){
+    if (this.currentDate.getDate() == this.viewnDate[TempVerifCurrentBar-1] && this.currentDate.getMonth() == this.SelectedDate.getMonth() && this.currentDate.getFullYear() == this.SelectedDate.getFullYear()){
 
       let DivContent: HTMLElement | any = document.getElementById('content');
 
