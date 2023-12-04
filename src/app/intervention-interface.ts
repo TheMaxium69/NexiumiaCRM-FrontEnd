@@ -2,7 +2,8 @@ import {ClientInterface} from "./client-interface";
 import {UserInterface} from "./user-interface";
 
 export interface InterventionInterface {
-  date:string;
+  id:number;
+  date:Date;
   information:string;
   title:string;
   state:string;
